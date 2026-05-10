@@ -33,7 +33,7 @@ pub fn build(b: *std.Build) void {
         "ggml-quants.c",
     };
     for (c_files) |file| {
-        ggml_lib.addCSourceFile(.{
+        ggml_lib.root_module.addCSourceFile(.{
             .file = ggml_src.path(b, file),
             .flags = c_flags,
         });
@@ -55,7 +55,7 @@ pub fn build(b: *std.Build) void {
         "ggml-cpu/repack.cpp",
     };
     for (cpp_files) |file| {
-        ggml_lib.addCSourceFile(.{
+        ggml_lib.root_module.addCSourceFile(.{
             .file = ggml_src.path(b, file),
             .flags = cpp_flags,
         });
