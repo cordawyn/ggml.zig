@@ -63,7 +63,7 @@ pub fn build(b: *std.Build) void {
 
     b.installArtifact(ggml_lib);
 
-    const ggml_mod = b.createModule(.{
+    const ggml_mod = b.addModule("ggml", .{
         .root_source_file = b.path("src/ggml.zig"),
         .target = target,
         .optimize = optimize,
